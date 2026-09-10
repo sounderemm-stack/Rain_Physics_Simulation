@@ -1,0 +1,36 @@
+{
+  "url": "http://127.0.0.1:8080/",
+  "viewports": {
+    "desktop": {
+      "width": 1280,
+      "height": 800,
+      "status": 200,
+      "title": "Three AM Pavement",
+      "hasCanvas": true,
+      "bodyTextLen": 807,
+      "bodyTextHash": "4dc7d8215f3e49cb8e74f51bd5db47977a38e5f5de02dfba5d252ce0054aef49",
+      "bodyTextPrefix": "RAIN PHYSICS LAB Three AM Pavement Ballistic drops, capillary-gr",
+      "horizontalOverflow": false,
+      "consoleErrors": [],
+      "pageErrors": [],
+      "screenshot": "/workspace/screenshots/app-builder-preview.png"
+    },
+    "mobile": {
+      "width": 390,
+      "height": 844,
+      "status": 200,
+      "title": "Three AM Pavement",
+      "hasCanvas": true,
+      "bodyTextLen": 264,
+      "bodyTextHash": "e9434a779adaa2f9480789342a9ad5b6f0647669ed525676a424efb94bef9a8b",
+      "bodyTextPrefix": "RAIN PHYSICS LAB Three AM Pavement Ballistic drops, capillary-gr",
+      "horizontalOverflow": false,
+      "consoleErrors": [],
+      "pageErrors": [],
+      "screenshot": "/workspace/screenshots/app-builder-preview-mobile.png"
+    }
+  },
+  "brandWarnings": [],
+  "authWarnings": [],
+  "verdictFile": "/workspace/screenshots/app-builder-preview.json"
+}
