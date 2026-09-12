@@ -22,6 +22,7 @@ type RainState = {
   setActiveNote: (key: string | null) => void;
   fireDropOne: () => void;
   fireClear: () => void;
+  togglePanelCollapsed: () => void;
 };
 
 export const useRainStore = create<RainState>((set) => ({
