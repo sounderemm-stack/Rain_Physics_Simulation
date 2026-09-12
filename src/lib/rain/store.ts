@@ -8,6 +8,7 @@ type RainState = {
   view: ViewMode;
   paused: boolean;
   panelOpen: boolean;
+  panelCollapsed: boolean;
   activeNote: string | null;
   dropToken: number;
   clearToken: number;
@@ -17,6 +18,7 @@ type RainState = {
   togglePause: () => void;
   setPaused: (paused: boolean) => void;
   setPanelOpen: (open: boolean) => void;
+  togglePanelCollapsed: () => void
   setActiveNote: (key: string | null) => void;
   fireDropOne: () => void;
   fireClear: () => void;
@@ -28,6 +30,7 @@ export const useRainStore = create<RainState>((set) => ({
   view: "cinematic",
   paused: false,
   panelOpen: false,
+  panelCollapsed: false,
   activeNote: null,
   dropToken: 0,
   clearToken: 0,
@@ -45,6 +48,7 @@ export const useRainStore = create<RainState>((set) => ({
   togglePause: () => set((s) => ({ paused: !s.paused })),
   setPaused: (paused) => set({ paused }),
   setPanelOpen: (panelOpen) => set({ panelOpen }),
+  togglePanelCollapsed: () => set((s) => ({ panelCollapsed: !s.panelCollapsed })),
   setActiveNote: (activeNote) => set({ activeNote }),
   fireDropOne: () => set((s) => ({ dropToken: s.dropToken + 1 })),
   fireClear: () => set((s) => ({ clearToken: s.clearToken + 1 })),
