@@ -159,6 +159,7 @@ export function RainLab() {
 
       <aside
         data-ui
+        data-panel="collapsible"
         className={cn(
           "pointer-events-auto absolute top-4 right-4 z-30 hidden lg:block",
           panelCollapsed ? "w-auto" : "bottom-4 w-80",
