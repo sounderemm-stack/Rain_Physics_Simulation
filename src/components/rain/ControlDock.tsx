@@ -74,9 +74,24 @@ export function ControlDock({ stats }: { stats: RainStats }) {
   return (
     <div className="flex h-full min-h-0 flex-col gap-4">
       <div>
-        <p className="font-mono text-2xs tracking-widest text-muted-foreground uppercase">
-          Field notes
-        </p>
+        <div className="flex items-center justify-between gap-2">
+          <p className="font-mono text-2xs tracking-widest text-muted-foreground uppercase">
+            Field notes
+          </p>
+          <Button
+            type="button"
+            size="icon"
+            variant="ghost"
+            className="relative z-40 size-8 shrink-0 lg:inline-flex"
+            aria-label="Collapse controls"
+            onClick={(e) => {
+              e.stopPropagation();
+              useRainStore.getState().togglePanelCollapsed();
+            }}
+          >
+            <PanelRightClose className="size-4" />
+          </Button>
+        </div>
         <h2 className="mt-1 font-display text-3xl leading-none tracking-wide text-foreground">
           {note.label}
         </h2>
