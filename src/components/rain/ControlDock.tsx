@@ -1,5 +1,5 @@
 import type { ReactNode } from "react";
-import { Droplet, Gauge, Pause, Play, RotateCcw, Waves } from "lucide-react";
+import { Droplet, Gauge, Pause, Play, RotateCcw, Waves,PanelRightClose } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Separator } from "@/components/ui/separator";
 import { Slider } from "@/components/ui/slider";
