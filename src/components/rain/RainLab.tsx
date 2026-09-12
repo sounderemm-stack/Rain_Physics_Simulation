@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from "react";
-import { Pause, Play, SlidersHorizontal, X } from "lucide-react";
+import { Pause, Play, SlidersHorizontal, X,PanelRightClose, PanelRightOpen } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { ControlDock, LiveStrip } from "@/components/rain/ControlDock";
 import { RainEngine } from "@/lib/rain/engine";
@@ -24,7 +24,8 @@ export function RainLab() {
   const [stats, setStats] = useState<RainStats>(ZERO_STATS);
   const [ready, setReady] = useState(false);
   const [hint, setHint] = useState(true);
-
+  const panelCollapsed = useRainStore((s) => s.panelCollapsed);
+  const togglePanelCollapsed = useRainStore((s) => s.togglePanelCollapsed);
   const paused = useRainStore((s) => s.paused);
   const panelOpen = useRainStore((s) => s.panelOpen);
   const params = useRainStore((s) => s.params);
@@ -158,12 +159,39 @@ export function RainLab() {
 
       <aside
         data-ui
-        className="pointer-events-auto absolute top-4 right-4 bottom-4 hidden w-80 lg:flex"
+        className={cn(
+          "pointer-events-auto absolute top-4 right-4 z-30 hidden lg:block",
+          panelCollapsed ? "w-auto" : "bottom-4 w-80",
+        )}
       >
-        <div className="flex h-full w-full flex-col rounded-2xl border border-border bg-card p-5 text-card-foreground">
-          <ControlDock stats={stats} />
-        </div>
-      </aside>
+        <div 
+          className={cn(
+            "rounded-2xl border border-border bg-card text-card-foreground",
+            panelCollapsed ? "p-2" : "flex h-full flex-col p-5",
+          )}
+        >
+          <div className="flex justify-end">
+      <Button
+        type="button"
+        size="icon"
+        variant="ghost"
+        className="relative z-40 size-9"
+        aria-label={panelCollapsed ? "Expand controls" : "Collapse controls"}
+        onClick={(e) => {
+          e.stopPropagation();
+          togglePanelCollapsed();
+        }}
+      >
+        {panelCollapsed ? <PanelRightOpen /> : <PanelRightClose />}
+      </Button>
+    </div>
+     {!panelCollapsed && (
+      <div className="min-h-0 flex-1 overflow-hidden">
+        <ControlDock stats={stats} />
+      </div>
+    )}   
+  </div>
+</aside>
 
       <div
         data-ui
